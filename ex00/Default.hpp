@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Default.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 10:53:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/04/09 10:54:42 by jeportie         ###   ########.fr       */
+/*   Created: 2025/04/09 10:07:48 by jeportie          #+#    #+#             */
+/*   Updated: 2025/04/09 10:30:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef DEFAULT_HPP
+# define DEFAULT_HPP
 
 # include <iostream>
 # include <string>
 
-class Fixed
+class Default
 {
 public:
-	Fixed(void);
-	Fixed(Fixed const & src);
-	~Fixed(void);
+	Default(void);
+	Default(Default const & src);
+	~Default(void);
 
-	Fixed & operator=(Fixed const & rhs);
+	Default &	operator=(Default const & rhs);
 
-	int getFoo(void) const;
+	int	getFoo(void) const;
 
 private:
-	int _foo;
+	int	_foo;
 };
 
 // Overload operator<< for output streaming
-std::ostream & operator<<(std::ostream & out, Fixed const & in);
+std::ostream &	operator<<(std::ostream & out, Default const & in);
 // Overload operator+ for string concatenation
-std::string operator+(std::string const & lhs, Fixed const & rhs);
+std::string operator+(std::string const & lhs, Default const & rhs);
 
-#endif  // ******************************************************** FIXED_HPP //
+#endif  // ****************************************************** DEFAULT_HPP //
