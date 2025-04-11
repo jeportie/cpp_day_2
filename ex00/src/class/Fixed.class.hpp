@@ -1,39 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/09 10:53:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/04/09 10:54:42 by jeportie         ###   ########.fr       */
+/*   Created: 2025/04/09 12:05:55 by jeportie          #+#    #+#             */
+/*   Updated: 2025/04/11 07:33:16 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#ifndef FIXED_CLASS_HPP
+# define FIXED_CLASS_HPP
 
 # include <iostream>
-# include <string>
 
 class Fixed
 {
 public:
 	Fixed(void);
 	Fixed(Fixed const & src);
+
 	~Fixed(void);
 
 	Fixed & operator=(Fixed const & rhs);
 
-	int getFoo(void) const;
+	int			getRawBits(void) const;
+	void		setRawBits(int const raw);	
+	std::string	toString(void) const; // serialise class to string
 
 private:
-	int _foo;
+	int					_result;
+	static const int	_fractBits = 8;
 };
 
 // Overload operator<< for output streaming
 std::ostream & operator<<(std::ostream & out, Fixed const & in);
-// Overload operator+ for string concatenation
-std::string operator+(std::string const & lhs, Fixed const & rhs);
 
-#endif  // ******************************************************** FIXED_HPP //
+#endif  // ************************************************** FIXED_CLASS_HPP //
