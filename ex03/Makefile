@@ -6,12 +6,12 @@
 #    By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/06 08:55:40 by jeportie          #+#    #+#              #
-#    Updated: 2025/04/11 13:43:22 by jeportie         ###   ########.fr        #
+#    Updated: 2025/04/11 13:43:08 by jeportie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fixed
-CXX = clang++ 
+NAME = bsp
+CXX = clang++ --debug
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 VALFLAGS = --leak-check=full
 OUTDIR = bin
