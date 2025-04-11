@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = bsp
-CXX = clang++ --debug
+CXX = c++ --debug
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 VALFLAGS = --leak-check=full
 OUTDIR = bin
