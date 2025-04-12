@@ -34,6 +34,8 @@ Point::Point(float const x, float const y)
 }
 
 Point::Point(Point const& src)
+: _x(src._x)
+, _y(src._y)
 {
 	if (LOGS)
 		std::cout << "Copy Point constructor called" << std::endl;
