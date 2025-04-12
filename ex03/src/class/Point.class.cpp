@@ -19,7 +19,8 @@ Point::Point(void)
 : _x(0)
 , _y(0)
 {
-	std::cout << "Default Point constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Default Point constructor called" << std::endl;
 	return;
 }
 
@@ -27,47 +28,47 @@ Point::Point(float const x, float const y)
 : _x(x)
 , _y(y)
 {
-	std::cout << "Parametric Point constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Parametric Point constructor called" << std::endl;
 	return;
 }
 
 Point::Point(Point const& src)
 {
-	std::cout << "Copy Point constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Copy Point constructor called" << std::endl;
 	*this = src;
 	return;
 }
 
 Point::~Point(void)
 {
-	std::cout << "Point destructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Point destructor called" << std::endl;
 	return;
 }
 
-Point & Point::operator=(Point const & rhs)
+Point & Point::operator=(Point const & rhs) // Since _x and _y are const, no modif possible
 {
-	std::cout << "Assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
-		this->_x = rhs.getX();
-		this->_y = rhs.getY();
-	}
+	if (LOGS)
+		std::cout << "Assignment operator called" << std::endl;
+	(void)rhs;
 	return (*this);
 }
 
 std::ostream & operator<<(std::ostream & out, Point const & in)
 {
-	out << "The value of _x is : " << in.getX();
-	out << "The value of _y is : " << in.getY();
+	out << "The value of _x is : " << in.getX() << std::endl;
+	out << "The value of _y is : " << in.getY() << std::endl;
 	return (out);
 }
 
-int Point::getX(void) const { return (_x); }
-int Point::getY(void) const { return (_y); }
+Fixed Point::getX(void) const { return (_x); }
+Fixed Point::getY(void) const { return (_y); }
 
 std::string Point::toString(void) const
 {
 	std::ostringstream oss;
-	oss << "Point(_x=" << _x << "_y=" << _y << " )";
+	oss << "Point(_x=" << _x << ", _y=" << _y << ")";
 	return (oss.str());
 }

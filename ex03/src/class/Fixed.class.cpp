@@ -20,33 +20,42 @@
 Fixed::Fixed(void)
 : _result(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const& src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
 Fixed::Fixed(const int value)
 {
-    std::cout << "Int constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Int constructor called" << std::endl;
     this->_result = value << _fractBits;
 }
 
 Fixed::Fixed(const float value)
 {
-    std::cout << "Float constructor called" << std::endl;
+	if (LOGS)
+		std::cout << "Float constructor called" << std::endl;
     this->_result = roundf(value * (1 << _fractBits));
 }
 
-Fixed::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
+Fixed::~Fixed(void)
+{
+	if (LOGS)
+		std::cout << "Destructor called" << std::endl;
+}
 
 /* ~~~~~~~~~~ ASSIGNEMENT OVERLOAD ~~~~~~~~~~ */
 Fixed& Fixed::operator=(Fixed const& rhs)
 {
-    std::cout << "Assignment operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Assignment operator called" << std::endl;
     if (this != &rhs)
         this->_result = rhs.getRawBits();
     return (*this);
@@ -55,37 +64,43 @@ Fixed& Fixed::operator=(Fixed const& rhs)
 /* ~~~~~~~~~~ COMPARISON OVERLOADS ~~~~~~~~~~ */
 bool Fixed::operator>(Fixed const& rhs) const
 {
-    std::cout << "Is bigger than operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is bigger than operator called" << std::endl;
     return (this->_result > rhs._result);
 }
 
 bool Fixed::operator<(Fixed const& rhs) const
 {
-    std::cout << "Is smaller than operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is smaller than operator called" << std::endl;
     return (this->_result < rhs._result);
 }
 
 bool Fixed::operator>=(Fixed const& rhs) const
 {
-    std::cout << "Is bigger or equal than operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is bigger or equal than operator called" << std::endl;
     return (this->_result >= rhs._result);
 }
 
 bool Fixed::operator<=(Fixed const& rhs) const
 {
-    std::cout << "Is smaller or equal than operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is smaller or equal than operator called" << std::endl;
     return (this->_result <= rhs._result);
 }
 
 bool Fixed::operator==(Fixed const& rhs) const
 {
-    std::cout << "Is equal operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is equal operator called" << std::endl;
     return (this->_result == rhs._result);
 }
 
 bool Fixed::operator!=(Fixed const& rhs) const
 {
-    std::cout << "Is not equal operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Is not equal operator called" << std::endl;
     return (this->_result != rhs._result);
 }
 
@@ -94,7 +109,8 @@ Fixed Fixed::operator+(Fixed const& rhs) const
 {
     Fixed result;
 
-    std::cout << "Addition operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Addition operator called" << std::endl;
     result._result = this->_result + rhs._result;
     return (result);
 }
@@ -103,7 +119,8 @@ Fixed Fixed::operator-(Fixed const& rhs) const
 {
     Fixed result;
 
-    std::cout << "Substraction operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Substraction operator called" << std::endl;
     result._result = this->_result - rhs._result;
     return (result);
 }
@@ -112,7 +129,8 @@ Fixed Fixed::operator*(Fixed const& rhs) const
 {
     Fixed result;
 
-    std::cout << "Multiplication operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Multiplication operator called" << std::endl;
     result._result = (this->_result * rhs._result) / (1 << _fractBits);
     return (result);
 }
@@ -121,7 +139,8 @@ Fixed Fixed::operator/(Fixed const& rhs) const
 {
     Fixed result;
 
-    std::cout << "Divions operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Divions operator called" << std::endl;
     if (rhs._result == 0)
     {
         std::cerr << "Division by zero!" << std::endl;
@@ -134,7 +153,8 @@ Fixed Fixed::operator/(Fixed const& rhs) const
 /* ~~~~~~~~~~ INC/DECREMENTATION OVERLOADS ~~~~~~~~~~ */
 Fixed& Fixed::operator++(void)
 {
-    std::cout << "Pre_increment operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Pre_increment operator called" << std::endl;
     ++this->_result;
     return (*this);
 }
@@ -143,7 +163,8 @@ Fixed Fixed::operator++(int)
 {
     Fixed tmp;
 
-    std::cout << "Post_increment operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Post_increment operator called" << std::endl;
     tmp = *this;
     ++this->_result;
     return (tmp);
@@ -151,7 +172,8 @@ Fixed Fixed::operator++(int)
 
 Fixed& Fixed::operator--(void)
 {
-    std::cout << "Pre_decrement operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Pre_decrement operator called" << std::endl;
     --this->_result;
     return (*this);
 }
@@ -160,7 +182,8 @@ Fixed Fixed::operator--(int)
 {
     Fixed tmp;
 
-    std::cout << "Post_decrement operator called" << std::endl;
+	if (LOGS)
+		std::cout << "Post_decrement operator called" << std::endl;
     tmp = *this;
     --this->_result;
     return (tmp);

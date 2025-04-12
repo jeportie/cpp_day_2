@@ -13,6 +13,8 @@
 #ifndef FIXED_CLASS_HPP
 # define FIXED_CLASS_HPP
 
+# define LOGS 0
+
 # include <iostream>
 
 class Fixed
