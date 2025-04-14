@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "src/class/Fixed.class.hpp"
+#include "src/class/Fixed.hpp"
 
 int main(void)
 {

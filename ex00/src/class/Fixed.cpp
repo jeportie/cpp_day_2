@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,25 +13,25 @@
 #include <iostream>
 #include <ostream>
 #include <sstream>
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed(void)
 : _result(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Fixed default constructor called" << std::endl;
     return;
 }
 
 Fixed::Fixed(Fixed const& src)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Fixed copy constructor called" << std::endl;
     *this = src;
     return;
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Fixed destructor called" << std::endl;
     return;
 }
 
