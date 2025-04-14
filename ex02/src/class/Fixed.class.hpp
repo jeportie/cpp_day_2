@@ -32,12 +32,12 @@ public:
 	Fixed&	operator=(Fixed const & rhs);
 
 	// Comparison overloads
-	bool	 operator>(Fixed const & rhs) const;
-	bool	 operator<(Fixed const & rhs) const;
-	bool	 operator>=(Fixed const & rhs) const;
-	bool	 operator<=(Fixed const & rhs) const;
-	bool	 operator==(Fixed const & rhs) const;
-	bool	 operator!=(Fixed const & rhs) const;
+	bool	operator>(Fixed const & rhs) const;
+	bool	operator<(Fixed const & rhs) const;
+	bool	operator>=(Fixed const & rhs) const;
+	bool	operator<=(Fixed const & rhs) const;
+	bool	operator==(Fixed const & rhs) const;
+	bool	operator!=(Fixed const & rhs) const;
 
 	// Arithmetic overloads
 	Fixed	operator+(Fixed const & rhs) const;
@@ -60,10 +60,10 @@ public:
 	int		toInt(void) const;
 
 	// Static member functions for min and max
-	static			Fixed& min(Fixed& a, Fixed& b);
-	static const	Fixed& min(const Fixed& a, const Fixed& b);
-	static			Fixed& max(Fixed& a, Fixed& b);
-	static const	Fixed& max(const Fixed& a, const Fixed& b);
+	static Fixed&		min(Fixed& a, Fixed& b);
+	static const Fixed&	min(const Fixed& a, const Fixed& b);
+	static Fixed&		max(Fixed& a, Fixed& b);
+	static const Fixed&	max(const Fixed& a, const Fixed& b);
 
 	// Serialisation as string
 	std::string	toString(void) const; // serialise class to string
