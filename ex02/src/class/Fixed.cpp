@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 #include <ostream>
 #include <sstream>
 #include <cmath>
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 /* ~~~~ CONSTRUCTORS / DESTRUCTOR ~~~~ */
 Fixed::Fixed(void)
