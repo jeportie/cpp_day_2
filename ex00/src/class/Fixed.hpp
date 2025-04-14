@@ -37,4 +37,4 @@ private:
 // Overload operator<< for output streaming
 std::ostream & operator<<(std::ostream & out, Fixed const & in);
 
-#endif  // ************************************************** FIXED_CLASS_HPP //
+#endif  // ************************************************** FIXED_HPP //

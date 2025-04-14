@@ -18,26 +18,26 @@
 Fixed::Fixed(void)
 : _result(0)
 {
-    std::cout << "Fixed default constructor called" << std::endl;
+    std::cout << "Default constructor called" << std::endl;
     return;
 }
 
 Fixed::Fixed(Fixed const& src)
 {
-    std::cout << "Fixed copy constructor called" << std::endl;
+    std::cout << "Copy constructor called" << std::endl;
     *this = src;
     return;
 }
 
 Fixed::~Fixed(void)
 {
-    std::cout << "Fixed destructor called" << std::endl;
+    std::cout << "Destructor called" << std::endl;
     return;
 }
 
 Fixed& Fixed::operator=(Fixed const& rhs)
 {
-    std::cout << "Assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs)
         this->_result = rhs.getRawBits();
     return (*this);
@@ -49,9 +49,17 @@ std::ostream& operator<<(std::ostream& out, Fixed const& in)
     return (out);
 }
 
-int Fixed::getRawBits(void) const { return this->_result; }
+int Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return this->_result;
+}
 
-void Fixed::setRawBits(int const raw) { this->_result = raw; }
+void Fixed::setRawBits(int const raw)
+{
+	std::cout << "setRawBits member function called" << std::endl;
+	this->_result = raw;
+}
 
 std::string Fixed::toString(void) const
 {

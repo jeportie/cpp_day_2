@@ -14,7 +14,7 @@
 #include <ostream>
 #include <sstream>
 #include <cmath>
-#include "Fixed.class.hpp"
+#include "Fixed.hpp"
 
 /* ~~~~ CONSTRUCTORS / DESTRUCTOR ~~~~ */
 Fixed::Fixed(void)
