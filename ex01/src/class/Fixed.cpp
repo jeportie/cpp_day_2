@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.class.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -46,7 +46,7 @@ Fixed::~Fixed(void) { std::cout << "Destructor called" << std::endl; }
 // Overloaded assignement operator
 Fixed& Fixed::operator=(Fixed const& rhs)
 {
-    std::cout << "Assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &rhs)
         this->_result = rhs.getRawBits();
     return (*this);
@@ -58,9 +58,14 @@ int Fixed::getRawBits(void) const { return this->_result; }
 
 void Fixed::setRawBits(int const raw) { this->_result = raw; }
 
-float Fixed::toFloat(void) const { return (static_cast<float>(this->_result) / (1 << _fractBits)); }
+float Fixed::toFloat(void) const
+{
+	float recasted = (float)this->_result;
 
-int Fixed::toInt(void) const { return this->_result >> _fractBits; }
+	return (recasted / (1 << _fractBits));
+}
+
+int Fixed::toInt(void) const { return (this->_result >> _fractBits); }
 
 // Serialise the Fixed object as a string
 std::string Fixed::toString(void) const
