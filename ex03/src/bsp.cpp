@@ -10,35 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "class/Point.class.hpp"
+#include "class/Fixed.hpp"
+#include "class/Point.hpp"
+
+static Fixed fxAbs(Fixed value) { return ((value < 0) ? value * Fixed(-1): value); }
 
 static Fixed calculateArea(const Point& p1, const Point& p2, const Point& p3)
 {
-    // Calculate each part of the formula separately for clarity
     Fixed part1 = p1.getX() * (p2.getY() - p3.getY());
     Fixed part2 = p2.getX() * (p3.getY() - p1.getY());
     Fixed part3 = p3.getX() * (p1.getY() - p2.getY());
-    
-    // Sum the parts and multiply by 0.5
     Fixed area = Fixed(0.5f) * (part1 + part2 + part3);
-    
-    // Take the absolute value since area can't be negative
-    if (area < Fixed(0))
-        area = area * Fixed(-1);
-    return area;
+    return (fxAbs(area));
 }
-
-/*
- * BSP (Binary Space Partitioning) function to determine if a point is inside a triangle.
- * The approach:
- * 1. Calculate the area of the main triangle (a, b, c)
- * 2. Calculate the areas of three triangles formed by the point and two vertices:
- *    - Triangle (point, a, b)
- *    - Triangle (point, b, c)
- *    - Triangle (point, c, a)
- * 3. If any of these areas is zero, the point lies on an edge -> return false
- * 4. If the point is inside, the sum of these three areas equals the main triangle area
- */
 
 bool bsp(Point const a, Point const b, Point const c, Point const point)
 {
@@ -60,7 +44,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
         std::cout << "Point is on an edge or vertex" << std::endl;
         return false;
     }
-    
     Fixed sumAreas = areaPAB + areaPBC + areaPCA;
 
     // Due to floating-point precision, we need to check if the difference is very small

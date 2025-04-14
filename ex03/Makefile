@@ -23,8 +23,8 @@ ARGS=$(filter-out $@,$(MAKECMDGOALS))
 #### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/class/Fixed.class.cpp \
-  src/class/Point.class.cpp \
+  src/class/Fixed.cpp \
+  src/class/Point.cpp \
   src/bsp.cpp 
 ### END AUTO GENERATED FILES ###
 

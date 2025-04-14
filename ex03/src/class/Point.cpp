@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.class.cpp                                    :+:      :+:    :+:   */
+/*   Point.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 # include <iostream>
 # include <ostream>
 # include <sstream>
-# include "Point.class.hpp"
+# include "Point.hpp"
 
 Point::Point(void)
 : _x(0)
@@ -33,7 +33,7 @@ Point::Point(float const x, float const y)
 	return;
 }
 
-Point::Point(Point const& src)
+Point::Point(const Point& src)
 : _x(src._x)
 , _y(src._y)
 {
@@ -50,7 +50,7 @@ Point::~Point(void)
 	return;
 }
 
-Point & Point::operator=(Point const & rhs) // Since _x and _y are const, no modif possible
+Point& Point::operator=(const Point& rhs)
 {
 	if (LOGS)
 		std::cout << "Assignment operator called" << std::endl;
@@ -58,7 +58,7 @@ Point & Point::operator=(Point const & rhs) // Since _x and _y are const, no mod
 	return (*this);
 }
 
-std::ostream & operator<<(std::ostream & out, Point const & in)
+std::ostream & operator<<(std::ostream& out, const Point& in)
 {
 	out << "The value of _x is : " << in.getX() << std::endl;
 	out << "The value of _y is : " << in.getY() << std::endl;

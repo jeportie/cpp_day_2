@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include "src/class/Point.class.hpp"
+#include "src/class/Point.hpp"
 
-void runTest(
-    const Point& a, const Point& b, const Point& c, const Point& point, const std::string& testName)
+void runTest(const Point& a, const Point& b, const Point& c,
+			 const Point& point, const std::string& testName)
 {
     std::cout << "\n===== " << testName << " =====" << std::endl;
     std::cout << "Triangle vertices:" << std::endl;

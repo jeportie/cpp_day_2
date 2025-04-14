@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Point.class.hpp                                    :+:      :+:    :+:   */
+/*   Point.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_CLASS_HPP
-# define POINT_CLASS_HPP
+#ifndef POINT_HPP
+# define POINT_HPP
 
 # include <iostream>
-# include "Fixed.class.hpp"
+# include "Fixed.hpp"
 
 class Point
 {
 public:
 	Point(void);
 	Point(float const x, float const y);
-	Point(Point const & src);
+	Point(const Point& src);
 	~Point(void);
 
-	Point & operator=(Point const & rhs);
+	Point& operator=(const Point& rhs);
 
 	Fixed getX(void) const;
 	Fixed getY(void) const;
@@ -37,8 +37,8 @@ private:
 };
 
 // Overload operator<< for output streaming
-std::ostream & operator<<(std::ostream & out, Point const & in);
+std::ostream& operator<<(std::ostream& out, const Point& in);
 
 bool bsp(Point const a, Point const b, Point const c, Point const point);
 
-#endif  // ************************************************** POINT_CLASS_HPP //
+#endif  // ************************************************** POINT_HPP //
