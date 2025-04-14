@@ -34,7 +34,6 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
         std::cout << "Main triangle has zero area" << std::endl;
         return false;
     }
-
     // Calculate the areas of the three triangles formed with the point
     Fixed areaPAB = calculateArea(point, a, b);
     Fixed areaPBC = calculateArea(point, b, c);
@@ -46,12 +45,8 @@ bool bsp(Point const a, Point const b, Point const c, Point const point)
     }
     Fixed sumAreas = areaPAB + areaPBC + areaPCA;
 
-    // Due to floating-point precision, we need to check if the difference is very small
-    Fixed diff = sumAreas - areaABC;
-    if (diff < Fixed(0))
-        diff = diff * Fixed(-1); // Take absolute value
+    Fixed diff = fxAbs(sumAreas - areaABC);
     std::cout << "Difference = " << diff << std::endl;
-
     // Using a small epsilon value for comparison
     bool isInside = (diff < Fixed(0.1f));
     return isInside;
